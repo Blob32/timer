@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Timer Fleksibel</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="timer-container">
+        <h1>Web Timer</h1>
+
+        <div class="settings">
+            <h2>Pengaturan</h2>
+            <div class="input-group">
+                <label for="main-time">Waktu Utama (HH:MM:SS):</label>
+                <input type="time" id="main-time" value="00:00:00" step="1" required>
+            </div>
+            <div class="input-group">
+                <label for="break-time">Waktu Jeda (HH:MM:SS):</label>
+                <input type="time" id="break-time" value="00:00:00" step="1" required>
+                <small>Jeda akan dimulai di tengah Waktu Utama.</small>
+            </div>
+            <div class="input-group">
+                <label for="reminder-time">Waktu Pengingat (Sebelum Habis HH:MM:SS):</label>
+                <input type="time" id="reminder-time" value="00:00:00" step="1" required>
+            </div>
+             <!-- Tombol Fullscreen Baru -->
+            <div class="fullscreen-control-area">
+                 <button id="fullscreen-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrows-angle-expand" viewBox="0 0 16 16">
+                      <path fill-rule="evenodd" d="M5.828 10.172a.5.5 0 0 0-.707 0l-4.096 4.096V11.5a.5.5 0 0 0-1 0v3.975a.5.5 0 0 0 .5.5H4.5a.5.5 0 0 0 0-1H1.732l4.096-4.096a.5.5 0 0 0 0-.707m4.344-4.344a.5.5 0 0 0 .707 0l4.096-4.096V4.5a.5.5 0 1 0 1 0V.525a.5.5 0 0 0-.5-.5H11.5a.5.5 0 0 0 0 1h2.768l-4.096 4.096a.5.5 0 0 0 0 .707"/>
+                    </svg>
+                 </button>
+                 <!-- Atau pakai ikon jika menggunakan Font Awesome: -->
+                 <!-- <button id="fullscreen-button"><i class="fas fa-expand"></i> Layar Penuh</button> -->
+            </div>
+        </div>
+
+        <!-- **** BARU: Div pembungkus untuk konten fullscreen **** -->
+        <div id="fullscreen-content">
+            <div class="timer-display">
+                <div id="timer-label">Siap Dimulai</div>
+                <div id="time-left">00:00:00</div>
+                <div id="status-message"></div>
+            </div>
+            <div class="controls">
+                <button id="start-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-right-fill" viewBox="0 0 16 16">
+                        <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
+                      </svg>
+                </button>
+                <button id="pause-button" disabled>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pause-fill" viewBox="0 0 16 16">
+                        <path d="M5.5 3.5A1.5 1.5 0 0 1 7 5v6a1.5 1.5 0 0 1-3 0V5a1.5 1.5 0 0 1 1.5-1.5m5 0A1.5 1.5 0 0 1 12 5v6a1.5 1.5 0 0 1-3 0V5a1.5 1.5 0 0 1 1.5-1.5"/>
+                      </svg>
+                </button>
+                <button id="reset-button" disabled>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-counterclockwise" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M8 3a5 5 0 1 1-4.546 2.914.5.5 0 0 0-.908-.417A6 6 0 1 0 8 2z"/>
+                        <path d="M8 4.466V.534a.25.25 0 0 0-.41-.192L5.23 2.308a.25.25 0 0 0 0 .384l2.36 1.966A.25.25 0 0 0 8 4.466"/>
+                      </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tambahkan audio untuk notifikasi (opsional) -->
+    <audio id="reminder-sound" src="path/ke/suara/3.mp3" preload="auto"></audio>
+    <audio id="end-sound" src="path/ke/suara/4.mp3" preload="auto"></audio>
+     <!-- <audio id="break-start-sound" src="path/ke/suara/mulai_jeda.mp3" preload="auto"></audio> -->
+
+
+    <script src="script.js"></script>
+</body>
+</html>
